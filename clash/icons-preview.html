@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clash Verge Icons Preview</title>
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(20, 184, 166, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 24%),
+        var(--bg);
+    }
+
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f766e, #155e75);
+      color: #fff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(209, 213, 219, 0.8);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) auto auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .ghost {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .status {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .crumb {
+      background: #ecfeff;
+      color: #155e75;
+      border: 1px solid #a5f3fc;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .folders {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .folder-btn {
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 14px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .preview {
+      height: 110px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background:
+        linear-gradient(45deg, #f1f5f9 25%, transparent 25%),
+        linear-gradient(-45deg, #f1f5f9 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #f1f5f9 75%),
+        linear-gradient(-45deg, transparent 75%, #f1f5f9 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+    }
+
+    .preview img {
+      max-width: 72px;
+      max-height: 72px;
+    }
+
+    .name {
+      font-size: 13px;
+      line-height: 1.5;
+      word-break: break-all;
+      color: #0f172a;
+      min-height: 40px;
+    }
+
+    .links {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .links a {
+      text-decoration: none;
+      font-size: 12px;
+      color: #0f766e;
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .empty {
+      color: var(--muted);
+      padding: 24px 0 8px;
+    }
+
+    @media (max-width: 980px) {
+      .controls {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 16px;
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Clash Verge 图标批量预览</h1>
+      <p>默认读取 <code>clash-verge-rev/clash-verge-rev.github.io</code> 的 <code>docs/assets/icons</code> 目录，可直接批量看所有 SVG，并支持进入子目录。</p>
+    </section>
+
+    <section class="panel">
+      <div class="controls">
+        <div>
+          <label for="owner">Owner</label>
+          <input id="owner" value="clash-verge-rev">
+        </div>
+        <div>
+          <label for="repo">Repo</label>
+          <input id="repo" value="clash-verge-rev.github.io">
+        </div>
+        <div>
+          <label for="ref">Branch / Tag</label>
+          <input id="ref" value="main">
+        </div>
+        <div>
+          <label for="path">Path</label>
+          <input id="path" value="docs/assets/icons">
+        </div>
+        <button class="primary" id="loadBtn">加载目录</button>
+        <button class="ghost" id="rootBtn">回到根目录</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="status">
+        <span id="statusText">等待加载</span>
+        <span id="countText"></span>
+      </div>
+      <div class="breadcrumbs" id="breadcrumbs"></div>
+    </section>
+
+    <section class="panel">
+      <div class="folders" id="folders"></div>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="emptyText"></div>
+    </section>
+  </div>
+
+  <script>
+    const ownerInput = document.getElementById("owner");
+    const repoInput = document.getElementById("repo");
+    const refInput = document.getElementById("ref");
+    const pathInput = document.getElementById("path");
+    const statusText = document.getElementById("statusText");
+    const countText = document.getElementById("countText");
+    const foldersEl = document.getElementById("folders");
+    const gridEl = document.getElementById("grid");
+    const emptyText = document.getElementById("emptyText");
+    const breadcrumbsEl = document.getElementById("breadcrumbs");
+
+    const defaultPath = "docs/assets/icons";
+
+    function buildApiUrl(owner, repo, path, ref) {
+      const encodedPath = path.split("/").map(encodeURIComponent).join("/");
+      return `https://api.github.com/repos/${owner}/${repo}/contents/${encodedPath}?ref=${encodeURIComponent(ref)}`;
+    }
+
+    function buildRawUrl(owner, repo, path, ref) {
+      return `https://fastly.jsdelivr.net/gh/${owner}/${repo}@${ref}/${path}`;
+    }
+
+    function setStatus(text, count = "") {
+      statusText.textContent = text;
+      countText.textContent = count;
+    }
+
+    function clearResults() {
+      foldersEl.innerHTML = "";
+      gridEl.innerHTML = "";
+      emptyText.textContent = "";
+      breadcrumbsEl.innerHTML = "";
+    }
+
+    function renderBreadcrumbs(path) {
+      breadcrumbsEl.innerHTML = "";
+      const parts = path.split("/").filter(Boolean);
+      let current = "";
+      parts.forEach((part, index) => {
+        current = current ? `${current}/${part}` : part;
+        const btn = document.createElement("button");
+        btn.className = "crumb";
+        btn.textContent = part;
+        btn.type = "button";
+        btn.addEventListener("click", () => loadDirectory(current));
+        breadcrumbsEl.appendChild(btn);
+        if (index < parts.length - 1) {
+          const sep = document.createElement("span");
+          sep.textContent = "/";
+          breadcrumbsEl.appendChild(sep);
+        }
+      });
+    }
+
+    function renderFolders(items) {
+      const folders = items.filter(item => item.type === "dir");
+      foldersEl.innerHTML = "";
+      folders.forEach(folder => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "folder-btn";
+        btn.textContent = `📁 ${folder.name}`;
+        btn.addEventListener("click", () => loadDirectory(folder.path));
+        foldersEl.appendChild(btn);
+      });
+    }
+
+    function renderIcons(items, owner, repo, ref) {
+      const icons = items
+        .filter(item => item.type === "file" && item.name.toLowerCase().endsWith(".svg"))
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+      gridEl.innerHTML = "";
+
+      if (!icons.length) {
+        emptyText.textContent = "当前目录没有 SVG 文件。";
+        return;
+      }
+
+      emptyText.textContent = "";
+
+      icons.forEach(icon => {
+        const rawUrl = buildRawUrl(owner, repo, icon.path, ref);
+
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const preview = document.createElement("div");
+        preview.className = "preview";
+
+        const img = document.createElement("img");
+        img.src = rawUrl;
+        img.alt = icon.name;
+        img.loading = "lazy";
+        preview.appendChild(img);
+
+        const name = document.createElement("div");
+        name.className = "name";
+        name.textContent = icon.name;
+
+        const links = document.createElement("div");
+        links.className = "links";
+
+        const openLink = document.createElement("a");
+        openLink.href = rawUrl;
+        openLink.target = "_blank";
+        openLink.rel = "noreferrer";
+        openLink.textContent = "打开 SVG";
+
+        const copyLink = document.createElement("a");
+        copyLink.href = "#";
+        copyLink.textContent = "复制链接";
+        copyLink.addEventListener("click", async (event) => {
+          event.preventDefault();
+          try {
+            await navigator.clipboard.writeText(rawUrl);
+            copyLink.textContent = "已复制";
+            setTimeout(() => {
+              copyLink.textContent = "复制链接";
+            }, 1200);
+          } catch (error) {
+            alert("复制失败，请手动复制。");
+          }
+        });
+
+        links.append(openLink, copyLink);
+        card.append(preview, name, links);
+        gridEl.appendChild(card);
+      });
+
+      setStatus("加载完成", `SVG 数量：${icons.length}`);
+    }
+
+    async function loadDirectory(path) {
+      const owner = ownerInput.value.trim();
+      const repo = repoInput.value.trim();
+      const ref = refInput.value.trim();
+
+      if (!owner || !repo || !ref || !path) {
+        setStatus("参数不完整");
+        return;
+      }
+
+      pathInput.value = path;
+      clearResults();
+      renderBreadcrumbs(path);
+      setStatus(`加载中：${path}`);
+
+      try {
+        const response = await fetch(buildApiUrl(owner, repo, path, ref), {
+          headers: { "Accept": "application/vnd.github+json" }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const items = await response.json();
+        if (!Array.isArray(items)) {
+          throw new Error("返回结果不是目录列表");
+        }
+
+        renderFolders(items);
+        renderIcons(items, owner, repo, ref);
+      } catch (error) {
+        setStatus(`加载失败：${error.message}`);
+        emptyText.textContent = "如果浏览器拦截了请求，可以稍后重试，或者把 owner/repo/path 改成你自己的仓库。";
+      }
+    }
+
+    document.getElementById("loadBtn").addEventListener("click", () => {
+      loadDirectory(pathInput.value.trim());
+    });
+
+    document.getElementById("rootBtn").addEventListener("click", () => {
+      loadDirectory(defaultPath);
+    });
+
+    loadDirectory(defaultPath);
+  </script>
+</body>
+</html>
