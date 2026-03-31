@@ -417,7 +417,7 @@ const domesticNameservers = [
         ...groupBaseOption,
         "name": "🥰 广告过滤",
         "type": "select",
-        "proxies": ["REJECT", "DIRECT"],
+        "proxies": ["REJECT", "DIRECT", "🔰 模式选择"],
         "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/bug.svg"
       },
       {
