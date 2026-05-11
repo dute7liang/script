@@ -56,8 +56,10 @@ const domesticNameservers = [
   // 个人远程规则。把这里替换成你 GitHub 上的 raw 文件地址即可。
   // proxy/direct 文件均使用 classical 规则格式，示例见 custom-rules-proxy.yaml 和 custom-rules-direct.yaml。
   const personalRuleProviderUrls = {
-    "personal-proxy": "", // 例如：https://raw.githubusercontent.com/你的用户名/你的仓库/main/clash/custom-rules-proxy.yaml
-    "personal-direct": "" // 例如：https://raw.githubusercontent.com/你的用户名/你的仓库/main/clash/custom-rules-direct.yaml
+    // 例如：https://raw.githubusercontent.com/你的用户名/你的仓库/main/clash/custom-rules-proxy.yaml
+    "personal-proxy": "https://raw.githubusercontent.com/dute7liang/script/master/clash/custom-rules-proxy.yaml", 
+    // 例如：https://raw.githubusercontent.com/你的用户名/你的仓库/main/clash/custom-rules-direct.yaml
+    "personal-direct": "https://raw.githubusercontent.com/dute7liang/script/master/clash/custom-rules-direct.yaml" 
   };
 
   function buildPersonalRuleProviders() {
