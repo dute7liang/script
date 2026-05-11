@@ -1,10 +1,16 @@
-payload:
-  # 域名后缀直连
-  - DOMAIN-SUFFIX,example.cn
-  # 完整域名直连
-  - DOMAIN,internal.example.com
-  # 域名关键词直连
-  - DOMAIN-KEYWORD,local-service
-  # IP 或网段直连
-  - IP-CIDR,192.0.2.10/32,no-resolve
-  - IP-CIDR,10.0.0.0/8,no-resolve
+# Clash 规则示例 - 自定义直连规则
+# 该规则示例展示了如何使用不同类型的规则来匹配域名和 IP 地址。
+# 你可以根据需要修改这些规则来适应你的网络环境。
+#
+# payload:
+#   # 域名后缀直连
+#   - DOMAIN-SUFFIX,example.cn
+#   # 完整域名直连
+#   - DOMAIN,internal.example.com
+#   # 域名关键词直连
+#   - DOMAIN-KEYWORD,local-service
+#   # IP 或网段直连
+#   - IP-CIDR,192.0.2.10/32,no-resolve
+#   - IP-CIDR,10.0.0.0/8,no-resolve
+
+payload: []
