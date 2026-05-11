@@ -1,0 +1,10 @@
+payload:
+  # 域名后缀走代理
+  - DOMAIN-SUFFIX,example.com
+  # 完整域名走代理
+  - DOMAIN,www.example.net
+  # 域名关键词走代理
+  - DOMAIN-KEYWORD,example-keyword
+  # IP 或网段走代理
+  - IP-CIDR,203.0.113.10/32,no-resolve
+  - IP-CIDR,198.51.100.0/24,no-resolve
