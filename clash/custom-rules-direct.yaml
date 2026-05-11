@@ -12,5 +12,6 @@
 #   # IP 或网段直连
 #   - IP-CIDR,192.0.2.10/32,no-resolve
 #   - IP-CIDR,10.0.0.0/8,no-resolve
+
 payload: 
   - DOMAIN-SUFFIX,jiangxinalisen.com
