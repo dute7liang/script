@@ -1,3 +1,0 @@
-payload:
-  # 域名后缀走代理，匹配 example.com 以及所有子域名
-  # - '+.example.com'
