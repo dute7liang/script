@@ -53,40 +53,20 @@ const domesticNameservers = [
     "interval": 86400
   };
 
-  // 个人远程规则。把这里替换成你 GitHub 上的 raw 文件地址即可。
-  // proxy/direct 文件均使用 classical 规则格式，示例见 custom-rules-proxy.yaml 和 custom-rules-direct.yaml。
-  const personalRuleProviderUrls = {
-    // 例如：https://raw.githubusercontent.com/你的用户名/你的仓库/main/clash/custom-rules-proxy.yaml
-    "personal-proxy": "https://raw.githubusercontent.com/dute7liang/script/master/clash/custom-rules-proxy.yaml", 
-    // 例如：https://raw.githubusercontent.com/你的用户名/你的仓库/main/clash/custom-rules-direct.yaml
-    "personal-direct": "https://raw.githubusercontent.com/dute7liang/script/master/clash/custom-rules-direct.yaml" 
-  };
-
-  function buildPersonalRuleProviders() {
-    return Object.fromEntries(
-      Object.entries(personalRuleProviderUrls)
-        .filter(([, url]) => typeof url === "string" && url.trim() !== "")
-        .map(([name, url]) => [
-          name,
-          {
-            ...ruleProviderCommon,
-            "behavior": "classical",
-            "url": url.trim(),
-            "path": `./ruleset/personal/${name}.yaml`
-          }
-        ])
-    );
-  }
-
-  const personalRuleProviders = buildPersonalRuleProviders();
-  const personalRules = [
-    personalRuleProviders["personal-proxy"] ? "RULE-SET,personal-proxy,🐳 自定义代理" : null,
-    personalRuleProviders["personal-direct"] ? "RULE-SET,personal-direct,🔗 全局直连" : null
-  ].filter(Boolean);
-
   // 规则集配置
   const ruleProviders = {
-    ...personalRuleProviders,
+    "custom-proxy": {
+      ...ruleProviderCommon,
+      "behavior": "classical",
+      "url": "https://gitee.com/duteliang/yaml555/raw/master/custom-rules-proxy.yaml",
+      "path": "./ruleset/personal/custom-rules-proxy.yaml"
+    },
+    "custom-direct": {
+      ...ruleProviderCommon,
+      "behavior": "classical",
+      "url": "https://gitee.com/duteliang/yaml555/raw/master/custom-rules-direct.yaml",
+      "path": "./ruleset/personal/custom-rules-direct.yaml"
+    },
     "reject": {
       ...ruleProviderCommon,
       "behavior": "domain",
@@ -216,9 +196,9 @@ const domesticNameservers = [
   };
   // 规则
   const rules = [
-    // 个人远程规则优先级最高：先判断你自己维护的代理/直连规则。
-    // 文件地址为空时，对应规则集不会生效；填写上方 personalRuleProviderUrls 后会自动启用。
-    ...personalRules,
+    // 个人远程规则优先级最高。classical 格式支持 DOMAIN-SUFFIX、DOMAIN、DOMAIN-KEYWORD、IP-CIDR。
+    "RULE-SET,custom-proxy,🐳 自定义代理",
+    "RULE-SET,custom-direct,🔗 全局直连",
     // 额外自定义规则       //在此添加你想要的规则
     //"DOMAIN-SUFFIX,aa.com,🔗 全局直连",
     //"DOMAIN-KEYWORD,aa.com,🔗 全局直连",

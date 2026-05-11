@@ -1,0 +1,3 @@
+payload:
+  # 域名后缀直连，匹配 jiangxinalisen.com 以及所有子域名
+  - '+.jiangxinalisen.com'
